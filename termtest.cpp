@@ -18,16 +18,16 @@ vector<string> roda(const string & cmd) {
 }
 
 void verifica(int n) {
-    string arq = "cat ../data/arq"+to_string(n)+".txt";
+    string arq = "cat ../data/res"+to_string(n)+".txt";
     string arqres = PROG;
-    arqres += "../data/res"+to_string(n)+".txt";
+    arqres += " ../data/arq"+to_string(n)+".txt";
 
     auto v = roda(arq);
     auto res = roda(arqres);
 
     if (v != res) {
-        FAIL() << "Esperado: " << v2str(v)
-               << ", obtido: " << v2str(res);
+        FAIL() << "Esperado: " << v2str(v) << endl
+               << "Obtido: " << v2str(res);
     }
 
 }
